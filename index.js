@@ -1,5 +1,9 @@
 require("dotenv").config();
 const express = require("express");
+app.get("/ping", (req, res) => {
+  res.status(200).send("OK");
+});
+
 const http = require("http");
 const { Server } = require("socket.io");
 const axios = require("axios");
