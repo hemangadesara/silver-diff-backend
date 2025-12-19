@@ -1,9 +1,5 @@
 require("dotenv").config();
 const express = require("express");
-app.get("/ping", (req, res) => {
-  res.status(200).send("OK");
-});
-
 const http = require("http");
 const { Server } = require("socket.io");
 const axios = require("axios");
@@ -27,6 +23,9 @@ if (!API_KEY || !CLIENT_CODE || !PIN) {
 }
 
 const app = express();
+app.get("/ping", (req, res) => {
+  res.status(200).send("OK");
+});
 const httpServer = http.createServer(app);
 const io = new Server(httpServer, { cors: { origin: "*" } });
 
